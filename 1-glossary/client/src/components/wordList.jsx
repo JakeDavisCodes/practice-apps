@@ -5,7 +5,7 @@ const WordList = props => {
 
   return (
     <div>
-      {props.words.map(word=> <Word word={word}/>)}
+      {props.words.map(word=> <Word word={word} update={props.update}/>)}
     </div>
   )
 }

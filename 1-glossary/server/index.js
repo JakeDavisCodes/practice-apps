@@ -34,8 +34,14 @@ app.post('/words', (req, res) => {
 })
 
 app.put('/words', (req, res) => {
-  console.log(req.body)
-  res.sendStatus(500);
+  controller.put(req.body.id, req.body.definition)
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(err => {
+      console.error(err);
+      res.sendStatus(500);
+    })
 })
 
 app.listen(1128);

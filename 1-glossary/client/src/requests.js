@@ -6,8 +6,9 @@ module.exports = {
   // USE PROMISES
 
 
-  put: (id, def) => {
+  put: (id, definition) => {
     console.log(`Sending Put request with ${id}`)
+    return axios.put('/words', { id, definition})
   },
   post: (word, definition) => {
     return axios.post('/words', { word, definition })

@@ -12,7 +12,7 @@ const Word = props => {
       <a>{props.word.definition}</a>
       <label for="changeDef"> Change Definition? </label>
       <input id="changeDef"type="text"name="Change Definition"onChange={(e) => setNewDef(e.target.value)}/>
-      <button onClick={() => Interface.put(props.word._id, newDef)}>Change Definition!</button>
+      <button onClick={() => {Interface.put(props.word._id, newDef), props.update()}}>Change Definition!</button>
     </div>
   )
 }

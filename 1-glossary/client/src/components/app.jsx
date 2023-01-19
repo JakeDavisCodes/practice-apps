@@ -65,7 +65,7 @@ const App = () => {
       <label for="definition">Enter a definition: </label>
       <input type="text"id="definition"name="definition"onChange={e=>{console.log(e.target.value), setDefinition(e.target.value)}}/>
       <button onClick={submitWord}>Add Word!</button>
-      <WordList words={words}/>
+      <WordList words={words} update={update}/>
     </div>
   )
 }
