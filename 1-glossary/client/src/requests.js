@@ -16,5 +16,13 @@ module.exports = {
   get: () => {
     console.log(`Sending Get request`)
     return axios.get('/words')
+  },
+  delete: (id) => {
+    console.log(`Sending delete request for ${id}`)
+    return axios.delete('/words', { id })
+  },
+  deleteAll: () => {
+    console.log(`Sending a request to delete all!`)
+    return axios.delete('/words/all')
   }
 }

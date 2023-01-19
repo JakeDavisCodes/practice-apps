@@ -58,8 +58,14 @@ const App = () => {
     }
   }
 
+  const deleteAll = () => {
+    Interface.deleteAll()
+      .then(setWords([]))
+  }
+
   return (
     <div className="app">
+      <button onClick={deleteAll}>Delete All!</button>
       <label for="word">Enter a word: </label>
       <input type="text"id="word"name="word"onChange={e=>{console.log(e.target.value), setWord(e.target.value)}}/>
       <label for="definition">Enter a definition: </label>

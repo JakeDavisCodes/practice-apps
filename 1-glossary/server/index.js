@@ -44,5 +44,18 @@ app.put('/words', (req, res) => {
     })
 })
 
+app.delete('/words')
+
+app.delete('/words/all', (req, res) => {
+  controller.clear()
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+})
+
 app.listen(1128);
 console.log(`Listening at http://localhost:1128`);
