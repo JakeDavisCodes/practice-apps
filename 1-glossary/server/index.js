@@ -22,6 +22,19 @@ app.get('/words', (req, res)=> {
     })
 })
 
+app.get('/words/search', (req, res) => {
+  console.log('LOOK', req.body)
+  controller.search(req.body.search)
+    .then(words => {
+      console.log(words)
+      res.status(200).json(words);
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500);
+    })
+})
+
 app.post('/words', (req, res) => {
   controller.post(req.body)
     .then(() => {
@@ -44,7 +57,17 @@ app.put('/words', (req, res) => {
     })
 })
 
-app.delete('/words')
+app.delete('/words', (req, res) => {
+  console.log(req.body)
+  controller.delete(req.body.id)
+    .then(() => {
+      res.sendStatus(204)
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+})
 
 app.delete('/words/all', (req, res) => {
   controller.clear()

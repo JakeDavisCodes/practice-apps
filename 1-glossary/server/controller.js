@@ -4,6 +4,9 @@ module.exports = {
   get: () => {
     return Word.find({})
   },
+  search: (term) => {
+    return Word.find({ word: { $regex: term } })
+  },
   post: (wordObj) => {
     console.log(wordObj)
     return Word.create(wordObj)
