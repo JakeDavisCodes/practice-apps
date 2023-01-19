@@ -1,4 +1,11 @@
+const axios = require('axios');
+
 module.exports = {
+
+
+  // USE PROMISES
+
+
   put: (id, def) => {
     console.log(`Sending Put request with ${id}`)
   },
@@ -7,5 +14,6 @@ module.exports = {
   },
   get: () => {
     console.log(`Sending Get request`)
+    return axios.get('/words')
   }
 }

@@ -39,9 +39,9 @@ const App = () => {
 
   useEffect(()=> {
     Interface.get()
-    // .then(words=> {
-    //   setWords(words)
-    // })
+    .then(data=> {
+      setWords(data.data)
+    })
   }, [])
 
   const submitWord = ()=> {
