@@ -9,8 +9,8 @@ module.exports = {
   put: (id, def) => {
     console.log(`Sending Put request with ${id}`)
   },
-  post: (word, def) => {
-    console.log(`Sending Post request with ${word}`)
+  post: (word, definition) => {
+    return axios.post('/words', { word, definition })
   },
   get: () => {
     console.log(`Sending Get request`)

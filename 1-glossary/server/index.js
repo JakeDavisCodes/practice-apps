@@ -23,8 +23,14 @@ app.get('/words', (req, res)=> {
 })
 
 app.post('/words', (req, res) => {
-  console.log(req.body)
-  res.sendStatus(500);
+  controller.post(req.body)
+    .then(() => {
+      res.sendStatus(201);
+    })
+    .catch(err => {
+      console.error(err)
+      res.sendStatus(500);
+    })
 })
 
 app.put('/words', (req, res) => {

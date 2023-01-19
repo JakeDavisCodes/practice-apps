@@ -37,16 +37,22 @@ const App = () => {
   let [word, setWord] = useState('');
   let [definition, setDefinition] = useState('');
 
-  useEffect(()=> {
+  const update = () => {
     Interface.get()
     .then(data=> {
+      console.log(data.data)
       setWords(data.data)
     })
+  }
+
+  useEffect(()=> {
+    update();
   }, [])
 
   const submitWord = ()=> {
     if(word.length > 0 && definition.length > 0) {
       Interface.post(word, definition)
+      .then(() => update())
     } else {
       alert('Please enter a word and definition!')
     }
